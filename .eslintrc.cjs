@@ -1,14 +1,27 @@
+require('@rushstack/eslint-patch/modern-module-resolution');
+
+const path = require('node:path');
+const createAliasSetting = require('@vue/eslint-config-airbnb/createAliasSetting');
+
+/* eslint-env node */
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'airbnb-base'],
-  overrides: [],
+  root: true,
+  extends: [
+    'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-recommended',
+    'plugins:unused-imports',
+    'eslint:recommended',
+    '@vue/eslint-config-airbnb',
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
   },
-  plugins: ['vue'],
-  rules: {},
+  rules: {
+    'import/no-unresolved': 'off',
+  },
+  settings: {
+    ...createAliasSetting({
+      '@': `${path.resolve(__dirname, './src')}`,
+    }),
+  },
 };
