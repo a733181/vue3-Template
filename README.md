@@ -2,8 +2,8 @@
 
 ##
 
-vite
-vue3
-vue-router
-tailwindcss
+vite  
+vue3  
+vue-router  
+tailwindcss  
 eslint-airbnb
